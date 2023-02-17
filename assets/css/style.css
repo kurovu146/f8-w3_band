@@ -8,10 +8,52 @@
 
 html {
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }
 
 .text-white {
   color: #fff !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.mt-8 {
+  margin-top: 8px !important;
+}
+
+.mt-16 {
+  margin-top: 16px !important;
+}
+
+.row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.col {
+  float: left;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.col-2 {
+  width: 50%;
+}
+
+.col-3 {
+  width: calc(100% / 3);
+}
+
+.col-full {
+  width: 100%;
 }
 
 #main {
@@ -127,7 +169,7 @@ ul li {
 }
 
 #content {
-  height: 5000px;
+
 }
 
 #content .content-section {
@@ -156,20 +198,14 @@ ul li {
 }
 
 #content .content-section .list-item {
-  display: flex;
   margin: 32px 0;
 }
 
-#content .list-item .item {
-  justify-content: space-between;
-  width: calc(100%/3);
-}
-
-#content .item p {
+#content p {
   margin: 15px 0;
 }
 
-#content .item img {
+#content .avatar {
   border-radius: 4px;
   width: 154px;
 }
@@ -208,33 +244,24 @@ ul li {
   background-color: #000;
 }
 
-.tour-date .place-list {
-  display: flex;
-  margin: 0 -8px;
+.place-list {
+  margin-top: 32px;
+  margin-bottom: 48px;
 }
 
-.tour-date .place-item img {
+.place-img {
   width: 100%;
   display: block;
 }
 
-.tour-date .place-item img:hover {
+.tour-date img:hover {
   opacity: 0.6;
-}
-
-.tour-date .place-item {
-  width: calc(100%/3);
-  padding: 32px 8px;
 }
 
 .tour-date .place-body {
   background-color: #fff;
   text-align: left;
   padding: 15px 16px;
-}
-
-.tour-date .place-heading {
-
 }
 
 .tour-date .place-time {
@@ -245,15 +272,177 @@ ul li {
   margin: 16px 0;
 }
 
-.tour-date .place-buy-btn {
+.btn {
   background-color: #000;
   color: #fff;
   padding: 11px 17px;
   text-decoration: none;
   display: inline-block;
+  border: none;
 }
 
+.btn:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+i {
+  margin-right: 16px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;  
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-header {
+  height: 130px;
+  background-color: rgb(0, 94, 66);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 30px;
+  justify-content: center;
+}
+
+.modal-container {
+  background-color: #fff;
+  width: 900px;
+  max-width: calc(100% - 32px);
+  min-height: 200px;
+  position: relative;
+  animation: modalFadeIn ease 0.6s;
+}
+
+.modal-close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+  padding-top: 16px;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 16px;
+}
+
+.modal-lable {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.modal-input {
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 24px;
+}
+
+#buy-ticket {
+  background-color: rgb(0, 94, 66);
+  border: none;
+  color: #fff;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 18px;
+  cursor: pointer;
+}
+
+#buy-ticket:hover {
+  opacity: 0.6;
+}
+
+.modal-footer {
+  text-align: right;
+  padding: 16px;
+}
+
+.modal-footer a {
+  color: rgb(51, 16, 207);
+}
+
+@keyframes modalFadeIn {
+  from {
+    transform: translateY(-140px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.contact-content {
+  margin: 48px 0;
+  text-align: left;
+}
+
+.contact-info {
+  font-size: 18px;
+}
+
+.contact-info i {
+  width: 16px;
+}
+
+.contact-form {
+  font-size: 15px;
+}
+
+.contact-form .form-control {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.form-submit-btn {
+  float: right;
+}
+
+img {
+  width: 100%;
+}
 
 #footer {
+  padding: 64px 16px;
+  text-align: center;
+}
 
+.footer .social-list {
+  font-size: 24px;
+}
+
+#footer .social-list a {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+
+#footer .social-list a:hover {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+#footer .copyright {
+  color: rgba(0, 0, 0, 0.6);
+  padding: 15px 0;
+}
+
+#footer .copyright a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+#footer .copyright a:hover {
+  color: rgba(0, 0, 0, 0.2);
 }
