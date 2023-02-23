@@ -8,6 +8,7 @@
   <title>Music band</title>
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
 
 <body>
@@ -38,6 +39,10 @@
       <div class="search-btn">
         <i class="search-icon ti-search"></i>
       </div>
+
+      <div id="mobile-menu" class="mobile-menu-btn">
+        <i class="menu-icon ti-menu"></i>
+      </div>
       <!-- End: Search button -->
 
     </div>
@@ -61,17 +66,17 @@
 
         <div class="row list-item">
 
-          <div class="col col-3">
+          <div class="col col-3 member-item">
             <p>Name</p>
             <img src="/assets/img/bandmember.jpg" alt="Name" class="avatar">
           </div>
 
-          <div class="col col-3">
+          <div class="col col-3 member-item">
             <p>Name</p>
             <img src="/assets/img/bandmember.jpg" alt="Name" class="avatar">
           </div>
 
-          <div class="col col-3">
+          <div class="col col-3 member-item">
             <p>Name</p>
             <img src="/assets/img/bandmember.jpg" alt="Name" class="avatar">
           </div>
@@ -96,7 +101,7 @@
           <!-- Places -->
           <div class="row place-list">
 
-            <div class="col col-3">
+            <div class="col col-3 member-item">
               <img src="/assets/img/sanfran.jpg" alt="" class="place-img">
               <div class="place-body">
                 <div class="place-heading">San Francisco</div>
@@ -105,7 +110,7 @@
                 <button class="btn js-buy-ticket">Buy Ticket</button>
               </div>
             </div>
-            <div class="col col-3">
+            <div class="col col-3 member-item">
               <img src="/assets/img/paris.jpg" alt="" class="place-img">
               <div class="place-body">
                 <div class="place-heading">Paris</div>
@@ -114,7 +119,7 @@
                 <button class="btn js-buy-ticket">Buy Ticket</button>
               </div>
             </div>
-            <div class="col col-3">
+            <div class="col col-3 member-item">
               <img src="/assets/img/newyork.jpg" alt="" class="place-img">
               <div class="place-body">
                 <div class="place-heading">New York</div>
@@ -248,6 +253,33 @@
       event.stopPropagation();
     })
   </script>
+
+  <script>
+    var header = document.getElementById('header');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var headerHeight = header.clientHeight;
+    var items = document.querySelectorAll('a[href*="#"]');
+
+    mobileMenu.onclick = function () {
+      var isClose = header.clientHeight === headerHeight;
+      if (isClose) {
+        header.style.height = 'auto';
+      } else {
+        header.style.height = null;
+      }
+    }
+
+    for (const item of items) {
+      item.onclick = function (event) {
+        var  isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav'); 
+        if (isParentMenu) {
+          event.preventDefault();
+        } else {
+          header.style.height = null;
+        }
+      }
+    }
+</script>
   
 </body>
 

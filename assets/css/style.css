@@ -127,18 +127,40 @@ ul li {
   font-size: 14px;
 }
 
-#header .search-btn {
+#header .search-btn,
+#header .mobile-menu-btn {
   float: right;
   width: 61px;
   color: #fff;
   padding: 0 23px;
+  line-height: 46px;
+  font-size: 15px;  
 }
 
 #header .search-btn:hover {
+  cursor: pointer;
   background-color: #f00;
 }
 
+#header .mobile-menu-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#header .mobile-menu-btn:hover {
+  background-color: #ccc;
+}
+
+#header .mobile-menu-btn:hover .menu-icon{
+  color: #000;
+}
+
 #header .search-icon {
+  
+}
+
+#header .menu-icon {
   line-height: 46px;
   font-size: 15px;
 }
@@ -174,9 +196,12 @@ ul li {
 
 #content .content-section {
   text-align: center;
-  width: 800px;
-  margin: 0 auto;
-  padding: 64px 0;
+    width: 800px;
+    margin: 0 auto;
+    padding: 64px 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100%;
 }
 
 #content .content-section .section-heading {
